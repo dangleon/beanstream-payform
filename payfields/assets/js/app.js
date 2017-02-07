@@ -22,8 +22,9 @@
         // Work around for browsers that do not support document.currentScript
         // source: http://www.2ality.com/2014/05/current-script.html
         // This will not work for if script is loaded async, so we cannot support async in IE8 or 9
-        var currentScript = document.currentScript || (function() {
-            var scripts = document.getElementsByTagName('script');
+        var payfieldsForm = document.querySelector('[data-beanstream-payfields-form]');
+        var currentScript = document.currentScript ||   (function() {
+            var scripts = payfieldsForm.getElementsByTagName('script');
             return scripts[scripts.length - 1];
         })();
 
