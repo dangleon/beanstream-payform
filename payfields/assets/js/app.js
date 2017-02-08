@@ -22,9 +22,13 @@
         // Work around for browsers that do not support document.currentScript
         // source: http://www.2ality.com/2014/05/current-script.html
         // This will not work for if script is loaded async, so we cannot support async in IE8 or 9
-        var currentScript = document.currentScript || (function() {
-            var scripts = document.getElementsByTagName('script');
-            return scripts[scripts.length - 1];
+        var currentScript = document.currentScript ||   (function() {
+            var scriptId = document.getElementById('payfields-script');
+            if (scriptId) {
+                return scriptId;
+            } else {
+                console.log('Error:The script tag with beanstream_payfields.js requires id value \'payfields-script\'');
+            };
         })();
 
         self.model = new beanstream.FormModel();
