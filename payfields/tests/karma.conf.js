@@ -4,7 +4,7 @@ module.exports = function(config) {
         browsers: ['Chrome'],
         frameworks: ['jasmine'],
         files: [
-          '../../build/payfields/beanstream_payfields.js',
+          '../../build/payfields/v2/beanstream_payfields.js',
           './unit/*.spec.js'
         ],
         customLaunchers: {
