@@ -26,7 +26,7 @@ function concatpayfields() {
                     './assets/js/event.js',
                     './payfields/assets/js/app.js'])
     .pipe(concat('beanstream_payfields.js'))
-    .pipe(gulp.dest('build/payfields'));
+    .pipe(gulp.dest('build/payfields/v2'));
 }
 
 function concatpayform() {
@@ -133,7 +133,7 @@ gulp.task('css', function() {
 gulp.task('copy', function() {
     // payfields
     gulp.src(['./payfields/assets/css/beanstream_payfields_style.css'])
-      . pipe(gulp.dest('./build/payfields'));
+      . pipe(gulp.dest('./build/payfields/v2'));
     // tokenizationform
     gulp.src(['./tokenizationform/index.html'])
       .pipe(gulp.dest('./build/tokenizationform'));
