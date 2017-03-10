@@ -27,7 +27,7 @@
             }
 
             var urlArray = this.currentScript.src.split('/');
-            this.host = urlArray[0] + '//' + urlArray[2];
+            this.host = urlArray[0] + '//' + urlArray[2] + '/' + urlArray[3];
 
             this.domTargets = {};
 

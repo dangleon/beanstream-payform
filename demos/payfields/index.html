@@ -14,7 +14,8 @@
           * https://payform-master.beanstream.com/payfields/beanstream_payfields.js
           * https://payform.beanstream.com/payfields/beanstream_payfields.js
           */
-          var domain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+          var version = location.pathname.split('/')[1];
+          var domain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/' + version + '/';
           var base = document.createElement('base');
           base.href = domain;
           document.getElementsByTagName('head')[0].appendChild(base);
@@ -44,9 +45,9 @@
 
                 <!--
                 Path set relative to host for demo. In production use absolute path:
-                https://payform.beanstream.com/payfields/v2/beanstream_payfields.js
+                https://payform.beanstream.com/payfields/beanstream_payfields.js
                 -->
-                <script src='payfields/v2/beanstream_payfields.js' id="payfields-script"></script>
+                <script src='payfields/beanstream_payfields.js' id="payfields-script"></script>
 
                 <button type='submit' class='btn btn-default' id="myButton">Submit</button>
             </form>
