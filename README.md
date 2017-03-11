@@ -47,11 +47,11 @@ The optional parameters are:
 * data-submitForm: if the form's default action should be executed - true/false
 
 ### Step 1: Add PayForm To Your Form
-The first step is to create an HTML form that will submit the payment data to your server. In that form you add a `<script>` element that points to [https://payform.beanstream.com/payform/beanstream_payform.js](https://payform.beanstream.com/payform/beanstream_payform.js). You can also supply several parameters to configure the form, such as your company name, logo, product description, price, currency, and whether billing/shipping addresses should be displayed. Here is an example:
+The first step is to create an HTML form that will submit the payment data to your server. In that form you add a `<script>` element that points to [https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js](https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js). You can also supply several parameters to configure the form, such as your company name, logo, product description, price, currency, and whether billing/shipping addresses should be displayed. Here is an example:
 ```html
-<form action="/charge" method="POST">
+<form id="form" action="/charge" method="POST">
     <script
-        src="https://payform.beanstream.com/payform/beanstream_payform.js"
+        src="https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js"
         data-image="https://downloads.beanstream.com/images/payform/cc_placeholder.png"
         data-name="ACME Corp."
         data-description="2 widgets"
@@ -130,7 +130,7 @@ PayFields is very similar to PayForm, but it allows you to design your own form.
 The minimal integration involves adding the script tag to a webpage within a form containing a submit button.
 ```javascript
 <form action='pay.php'>
-  <script src='https://payform.beanstream.com/payfields/beanstream_payfields.js'></script>
+  <script src='https://payform.beanstream.com/v0.0.0/payfields/beanstream_payfields.js'></script>
   <button type='submit'>Submit</button>
 </form>
 ```
@@ -143,7 +143,7 @@ The above example uses PayField's default display and behaviour, but it is also 
 
 The integration below shows placeholders and the data attribute in use. It shows PayFields placeholders within the markup of a Bootstrap styled form.
 ```html
-<form action='pay.php'>
+<form action='pay.php' id="myForm">
   <div class='form-group'>
     <label>Card Number</label>
     <div data-beanstream-target='ccNumber_input'></div>
@@ -159,7 +159,7 @@ The integration below shows placeholders and the data attribute in use. It shows
     <div data-beanstream-target='ccCvv_input'></div>
     <div data-beanstream-target='ccCvv_error' class='help-block'></div>
   </div>
-  <script src='https://payform.beanstream.com/payfields/beanstream_payfields.js'     
+  <script src='https://payform.beanstream.com/v0.0.0/payfields/beanstream_payfields.js'     
           data-submit-form='false'></script>
   <button type='submit' class='btn btn-default'>Submit</button>
 </form>
@@ -168,15 +168,15 @@ The integration below shows placeholders and the data attribute in use. It shows
 ## Building Locally and Contributing <a name="contributing"/>
 ##### Build and serve
 ```
-git clone https://github.com/Beanstream/beanstream-payform.git
-cd beanstream-payform/
-git checkout dev
-npm install
-gulp
+$ git clone https://github.com/Beanstream/beanstream-payform.git
+$ cd beanstream-payform/
+$ git checkout dev
+$ npm install
+$ gulp
 
-cd build/
-python -m SimpleHTTPServer 8000
-# or php -S localhost:8000
+$ cd build/
+$ python -m SimpleHTTPServer 8000
+or php -S localhost:8000
 ```
 
 ##### Running automation (Protractor)
@@ -193,14 +193,14 @@ protractor tests/payform-dev.beanstream.com/conf.js
 
 
 # Demo <a name="demo"/>
-* [PayForm](https://payform.beanstream.com/demos/payform/)
-* [PayFields](https://payform.beanstream.com/demos/payfields/)
+* [PayForm](https://payform.beanstream.com/v0.0.0/demos/payform/)
+* [PayFields](https://payform.beanstream.com/v0.0.0/demos/payfields/)
 
 You can view the page source of either of the above demos to see how PayForm and PayFields were integrated. Feel free to copy-paste the code into your site.
 
 ## Hosted Scripts <a name="hosted-scripts"/>
-* [PayForm](https://payform.beanstream.com/payform/beanstream_payform.js)
-* [PayFields](https://payform.beanstream.com/payfields/beanstream_payfields.js)
+* [PayForm](https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js)
+* [PayFields](https://payform.beanstream.com/v0.0.0/payfields/beanstream_payfields.js)
 
 
 ## Browser Support <a name="browser-support"/>

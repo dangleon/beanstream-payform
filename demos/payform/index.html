@@ -18,7 +18,8 @@
       * https://payfields-master.beanstream.com/payfields/beanstream_payfields.js
       * https://payfields.beanstream.com/payfields/beanstream_payfields.js
       */
-      var domain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+      var version = location.pathname.split('/')[1];
+      var domain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/' + version + '/';
       var base = document.createElement('base');
       base.href = domain;
       document.getElementsByTagName('head')[0].appendChild(base);

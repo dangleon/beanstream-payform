@@ -62,8 +62,8 @@
             attributes.primaryColor = this.script.getAttribute('data-primaryColor');
             attributes.parentDomain =
                 location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
-            attributes.host = this.host;
-
+            var version = location.pathname.split('/')[1];
+            attributes.host = this.host +  '/' + version;
             return attributes;
         },
 
