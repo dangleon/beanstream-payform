@@ -4,7 +4,7 @@ const concat = require('gulp-concat');
 const jscs = require('gulp-jscs');
 const runSequence = require('run-sequence');
 const autoprefixer = require('gulp-autoprefixer');
-const outputDirectory = 'build/v0.0.0';
+const outputDirectory = 'build/v0.0.0/';
 
 /**
  * Concat JS files
@@ -27,7 +27,7 @@ function concatpayfields() {
                     './assets/js/event.js',
                     './payfields/assets/js/app.js'])
     .pipe(concat('beanstream_payfields.js'))
-    .pipe(gulp.dest(outputDirectory + '/payfields/'));
+    .pipe(gulp.dest(outputDirectory + 'payfields/'));
 }
 
 function concatpayform() {
@@ -39,7 +39,7 @@ function concatpayform() {
                     './assets/js/helper.js',
                     './payform/assets/js/app.js'])
     .pipe(concat('beanstream_payform.js'))
-    .pipe(gulp.dest(outputDirectory + '/payform'));
+    .pipe(gulp.dest(outputDirectory + 'payform'));
 }
 
 function concattokenizationform() {
@@ -51,7 +51,7 @@ function concattokenizationform() {
                     './assets/js/helper.js',
                     './tokenizationform/assets/js/app.js'])
     .pipe(concat('script.js'))
-    .pipe(gulp.dest(outputDirectory + '/tokenizationform/js'));
+    .pipe(gulp.dest(outputDirectory + 'tokenizationform/js'));
 }
 
 /**
@@ -125,7 +125,7 @@ gulp.task('css', function() {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('./' + outputDirectory + '/tokenizationform/css'));
+        .pipe(gulp.dest('./' + outputDirectory + 'tokenizationform/css'));
 });
 
 /**
@@ -134,17 +134,17 @@ gulp.task('css', function() {
 gulp.task('copy', function() {
     // payfields
     gulp.src(['./payfields/assets/css/beanstream_payfields_style.css'])
-      . pipe(gulp.dest('./' + outputDirectory + '/payfields'));
+      . pipe(gulp.dest('./' + outputDirectory + 'payfields'));
     // tokenizationform
     gulp.src(['./tokenizationform/index.html'])
-      .pipe(gulp.dest('./' + outputDirectory + '/tokenizationform'));
+      .pipe(gulp.dest('./' + outputDirectory + 'tokenizationform'));
     gulp.src(['./tokenizationform/assets/css/spinner.css'])
-      .pipe(gulp.dest('./' + outputDirectory + '/tokenizationform/css'));
+      .pipe(gulp.dest('./' + outputDirectory + 'tokenizationform/css'));
     gulp.src(['./tokenizationform/assets/css/images/*'])
-      .pipe(gulp.dest('./' + outputDirectory + '/tokenizationform/css/images'));
+      .pipe(gulp.dest('./' + outputDirectory + 'tokenizationform/css/images'));
     // demos
     gulp.src(['./demos/**/*'])
-      .pipe(gulp.dest('./' + outputDirectory + '/demos'));
+      .pipe(gulp.dest('./' + outputDirectory + 'demos'));
 });
 
 gulp.task('build', function(cb) {

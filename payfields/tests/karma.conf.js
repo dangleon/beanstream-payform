@@ -4,7 +4,6 @@ module.exports = function(config) {
         browsers: ['Chrome'],
         frameworks: ['jasmine'],
         files: [
-         //var version = location.pathname.split('/')[1];
           '../../build/v0.0.0/payfields/beanstream_payfields.js',
           './unit/*.spec.js'
         ],
