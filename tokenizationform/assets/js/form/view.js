@@ -53,7 +53,7 @@
                     // parameter.host
                     self.script = document.createElement('script');
                     self.script.src = parameter.host + '/payfields/beanstream_payfields.js';
-                    self.script.setAttribute('async', true);
+                    self.script.setAttribute('id', 'payfields-script');
                     self.form.appendChild(self.script);
                 },
                 currentPanel: function() {

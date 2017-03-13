@@ -49,7 +49,7 @@ The optional parameters are:
 ### Step 1: Add PayForm To Your Form
 The first step is to create an HTML form that will submit the payment data to your server. In that form you add a `<script>` element that points to [https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js](https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js). You can also supply several parameters to configure the form, such as your company name, logo, product description, price, currency, and whether billing/shipping addresses should be displayed. Here is an example:
 ```html
-<form id="form" action="/charge" method="POST">
+<form action="/charge" method="POST">
     <script
         src="https://payform.beanstream.com/v0.0.0/payform/beanstream_payform.js"
         data-image="https://downloads.beanstream.com/images/payform/cc_placeholder.png"
@@ -130,7 +130,7 @@ PayFields is very similar to PayForm, but it allows you to design your own form.
 The minimal integration involves adding the script tag to a webpage within a form containing a submit button.
 ```javascript
 <form action='pay.php'>
-  <script src='https://payform.beanstream.com/v0.0.0/payfields/beanstream_payfields.js'></script>
+  <script id='payfields-script' src='https://payform.beanstream.com/v0.0.0/payfields/beanstream_payfields.js'></script>
   <button type='submit'>Submit</button>
 </form>
 ```
@@ -140,10 +140,11 @@ The above example uses PayField's default display and behaviour, but it is also 
  * Placeholders can be added to the HTML markup to specify where the fields are injected.  
  * The web page can listen for callbacks from Payfields to handle styling and error states.
  * The 'data-submit-form' attribute on the script tag can be used to specify if the Payflelds should submit the form after tokenization, or just fire an event.
+  * The 'id' attribute on the script tag is required and should always be set to "payfields-script".
 
 The integration below shows placeholders and the data attribute in use. It shows PayFields placeholders within the markup of a Bootstrap styled form.
 ```html
-<form action='pay.php' id="myForm">
+<form action='pay.php'>
   <div class='form-group'>
     <label>Card Number</label>
     <div data-beanstream-target='ccNumber_input'></div>
@@ -160,7 +161,7 @@ The integration below shows placeholders and the data attribute in use. It shows
     <div data-beanstream-target='ccCvv_error' class='help-block'></div>
   </div>
   <script src='https://payform.beanstream.com/v0.0.0/payfields/beanstream_payfields.js'     
-          data-submit-form='false'></script>
+          data-submit-form='false' id='payfields-script'></script>
   <button type='submit' class='btn btn-default'>Submit</button>
 </form>
 ```
